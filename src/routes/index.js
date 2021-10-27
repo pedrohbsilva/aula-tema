@@ -2,14 +2,15 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import PrivateRoute from './privateRoute'
 import PublicRoute from './publicRoute'
-import {useAuth} from '../context'
-function Routes() {
-  const {user} = useAuth()
+import { useAuth } from '../context'
 
-  const existToken = user ? true : false
+function Routes() {
+  const { user } = useAuth()
+
+  const existUser = user ? true : false
   return (
     <BrowserRouter>
-        {existToken ? <PrivateRoute/> : <PublicRoute/>}
+      {existUser ? <PrivateRoute /> : <PublicRoute />}
     </BrowserRouter>
   )
 }

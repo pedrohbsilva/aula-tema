@@ -33,17 +33,10 @@ function AuthProvider({ children }){
 
     setData({});
   };
-  function updateUser(user){
-      localStorage.setItem('user', JSON.stringify(user));
 
-      setData({
-        token: data.token,
-        user,
-      });
-    };
   return (
     <AuthContext.Provider
-      value={{ user: data.user, signIn, signOut, updateUser }}
+      value={{ user: data.user, signIn, signOut }}
     >
       {children}
     </AuthContext.Provider>
